@@ -52,14 +52,14 @@ async def webhook(request: Request):
             "data": data
         }
 
-        print("📥 Webhook received:", json.dumps(log_entry, indent=2))
+        print("Webhook received:", json.dumps(log_entry, indent=2))
 
         with open("webhookResponse.txt", "a") as f:
             f.write(json.dumps(log_entry, indent=2) + "\n\n")
 
         return {"message": "Webhook data logged"}
     except Exception as e:
-        print(f"❌ Webhook error: {str(e)}")
+        print(f" Webhook error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Webhook error: {str(e)}")
 
 
